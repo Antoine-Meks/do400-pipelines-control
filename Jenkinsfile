@@ -13,11 +13,12 @@ pipeline {
  }
  }
  stage('Frontend Tests') {
- steps {
- sh 'node ./frontend/test.js'
- }
- }
- }
+	when { expression { params.RUN_FRONTEND_TESTS } } 
+	steps {
+ 		sh 'node ./frontend/test.js'
+ 		}
+ 	}
+ 	}
  }
  }
 }
